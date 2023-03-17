@@ -1,0 +1,73 @@
+class MarketingAgency:
+    def __init__(self, name, clients):
+        self.name = name
+        self.clients = clients
+        
+    def add_client(self, client):
+        self.clients.append(client)
+        print(f"{client} has been added as a new client.")
+        
+    def remove_client(self, client):
+        if client in self.clients:
+            self.clients.remove(client)
+            print(f"{client} has been removed from the client list.")
+        else:
+            print(f"{client} is not a current client.")
+        
+    def print_clients(self):
+        print(f"List of clients for {self.name} agency:")
+        for client in self.clients:
+            print(client)
+            
+    def run_campaign(self, client, campaign):
+        print(f"Running {campaign} campaign for {client}...")
+        # Code for running a marketing campaign would go here
+        print("Campaign complete!")
+agency = MarketingAgency("Acme Marketing", ["Client A", "Client B"])
+agency.print_clients()
+# Output: List of clients for Acme Marketing agency:
+#         Client A
+#         Client B
+
+agency.add_client("Client C")
+# Output: Client C has been added as a new client.
+
+agency.print_clients()
+# Output: List of clients for Acme Marketing agency:
+#         Client A
+#         Client B
+#         Client C
+class MarketingAgency:
+    def __init__(self, name, clients):
+        self.name = name
+        self.clients = clients
+        
+    def add_client(self, client):
+        if client in self.clients:
+            print(f"{client} is already a client.")
+        else:
+            self.clients.append(client)
+            print(f"{client} has been added as a new client.")
+        
+    def remove_client(self, client):
+        if client in self.clients:
+            self.clients.remove(client)
+            print(f"{client} has been removed from the client list.")
+        else:
+            print(f"{client} is not a current client.")
+        
+    def print_clients(self):
+        if len(self.clients) == 0:
+            print(f"There are no clients for {self.name} agency.")
+        else:
+            print(f"List of clients for {self.name} agency:")
+            for client in self.clients:
+                print(client)
+            
+    def run_campaign(self, client, campaign):
+        if client not in self.clients:
+            print(f"{client} is not a current client.")
+        else:
+            print(f"Running {campaign} campaign for {client}...")
+            # Code for running a marketing campaign would go here
+            print("Campaign complete!")
